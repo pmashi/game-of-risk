@@ -1,0 +1,4 @@
+dice - random
+
+input - mouse event
+maybe key listener
