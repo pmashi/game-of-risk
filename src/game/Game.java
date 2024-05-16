@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 
 public class Game extends JFrame implements Runnable {
     private GamePanel panel; 
+    private GameRender render; 
+    private Thread gameThread; 
+    
     public static final int unit = 10; 
     private String players; 
     
@@ -41,24 +44,19 @@ public class Game extends JFrame implements Runnable {
 		double timePerUpdate = 1000000000.0 / UPS;
 		int frames = 0;
 		int updates = 0;
-		
-		while (true)
-		{
+		while (true) {
 			current = System.nanoTime(); 
-			if (current - lastFrame >= timePerFrame)
-			{
+			if (current - lastFrame >= timePerFrame) {
 				repaint();
 				lastFrame = current;
 				frames++;
 			}
-			if (current - lastUpdate >= timePerUpdate)
-			{
+			if (current - lastUpdate >= timePerUpdate) {
 				updateGame();
 				lastUpdate = current;
 				updates++;
 			}
-			if (System.currentTimeMillis() - lastTimeCheck >= 1000)
-			{
+			if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
 //				System.out.println("FPS: " + frames + " | UPS: " + updates);
 				frames = 0;
 				updates = 0;
@@ -68,6 +66,9 @@ public class Game extends JFrame implements Runnable {
     }
 
     public void updateGame() { 
-        
+        switch (GameStates.gameState) { 
+            default: 
+            break; 
+        }
     }
 }
