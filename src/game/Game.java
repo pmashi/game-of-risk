@@ -1,6 +1,6 @@
 package src.game;
 
-import java.awt.Graphics2D;
+import src.scenes.*;
 
 import javax.swing.JFrame;
 
@@ -9,13 +9,31 @@ public class Game extends JFrame implements Runnable {
     private GameRender render; 
     private Thread gameThread; 
     
+    private Menu menu; 
+    private Instructions instructions; 
+    private PlayCreate playCreate; 
+    private Play play; 
+    private Shop shop; 
+    private GameOver gameOver; 
+    
+
     public static final int unit = 10; 
     private String players; 
+
     
     public static final double FPS = 60.0; 
     public static final double UPS = 60.0;
 
+    public static void main(String[] args) { 
+        System.out.println("Starting...");
+        Game game = new Game();
+        game.panel.initInputs();
+        game.start(); 
+    }
+
     public Game() {  
+        initClasses();
+
         panel = new GamePanel(this);
         this.setTitle("Game of Data"); 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,15 +44,21 @@ public class Game extends JFrame implements Runnable {
         setVisible(true);
     }
 
-    public static void main(String[] args) { 
-        new Game();
+    public void initClasses() { 
+        render = new GameRender(this);
+        menu = new Menu(this);
+        instructions = new Instructions(this);
+        playCreate = new PlayCreate(this);
+        play = new Play(this);
+        shop = new Shop(this);
+        gameOver = new GameOver(this);
     }
 
-    public void render(Graphics2D g) {
-
+    public void start() {
+        gameThread = new Thread(this){};
+        gameThread.start(); 
     }
 
-    @Override
     public void run() {
         long lastFrame = System.nanoTime();
 		long lastUpdate = System.nanoTime();
@@ -67,8 +91,48 @@ public class Game extends JFrame implements Runnable {
 
     public void updateGame() { 
         switch (GameStates.gameState) { 
+            case MENU: 
+            break;
+            case INSTRUCTIONS:
+            break;  
+            case PLAYCREATE:
+            break;
+            case PLAY: 
+            play.update(); 
+            case SHOP: 
+            break; 
+            case GAME_OVER:
+            break;
             default: 
             break; 
         }
+    }
+
+    public GameRender getRender(){ 
+        return render; 
+    }
+
+    public Menu getMenu() { 
+        return menu; 
+    }
+
+    public Instructions getInstructions() {
+        return instructions; 
+    }
+
+    public PlayCreate getPlayCreate() {
+        return playCreate;
+    }
+
+    public Play getPlay() { 
+        return play; 
+    }
+
+    public Shop getShop() { 
+        return shop; 
+    }
+
+    public GameOver getGameOver() { 
+        return gameOver; 
     }
 }

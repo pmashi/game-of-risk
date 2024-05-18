@@ -1,7 +1,7 @@
 package src.ui;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Buttons {
@@ -21,40 +21,48 @@ public class Buttons {
         initBounds(); 
     }
 
+    public Buttons(String text, int x, int y, int width, int height) { 
+        this.text = text;
+        this.x = x; 
+        this.y = y; 
+        this.width = width; 
+        this.height = height; 
+        id = -1;
+
+        initBounds(); 
+    }
+
     public void initBounds() {
         this.bounds = new Rectangle(x, y, width, height); 
     }
 
-    public void draw(Graphics2D g) { 
+    public void draw(Graphics g) { 
         drawBody(g);
         drawBorder(g);
         drawText(g);
     }
 
-    public void drawBody(Graphics2D g){ 
-        if (mouseOver)
-		{
+    public void drawBody(Graphics g){ 
+        if (mouseOver) {
 			g.setColor(Color.DARK_GRAY);
 		}
-		else 
-		{
+		else {
 			g.setColor(Color.white);
 			g.fillRect(x, y, width, height);	
 		}
     }
 
-    public void drawBorder(Graphics2D g) { 
+    public void drawBorder(Graphics g) { 
         g.setColor(Color.black);
 		g.drawRect(x, y, width, height);
 		
-		if (mousePressed) 
-		{
+		if (mousePressed) {
 			g.drawRect(x + 1, y + 1, width - 2, height - 2);
 			g.drawRect(x + 2, y + 2, width - 4, height - 4);
 		}
     }
 
-    public void drawText(Graphics2D g) { 
+    public void drawText(Graphics g) { 
         int w = g.getFontMetrics().stringWidth(text);
 		int h = g.getFontMetrics().getHeight();
 		g.drawString(text, x - w / 2 + width / 2, y + h / 2 - 3 + height / 2);
