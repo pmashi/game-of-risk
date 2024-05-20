@@ -9,6 +9,7 @@ public class Buttons {
     private Rectangle bounds; 
     private boolean mouseOver, mousePressed; 
     public int x, y, width, height, id; 
+    private Color selected; 
 
     public Buttons(String text, int x, int y, int width, int height, int id) { 
         this.text = text;

@@ -4,7 +4,9 @@ import java.awt.Graphics;
 
 import src.game.Game;
 
-public class Play extends GameScene implements SceneMethods {    
+public class Play extends GameScene implements SceneMethods { 
+    private int players = 0; 
+
     public Play(Game game) {
         super(game); 
     }
@@ -34,5 +36,9 @@ public class Play extends GameScene implements SceneMethods {
 
     public void mouseDragged(int x, int y) {
 
+    }
+
+    public void setPlayers(int i) { 
+        players = i; 
     }
 }

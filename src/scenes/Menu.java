@@ -13,7 +13,6 @@ public class Menu extends GameScene implements SceneMethods {
     private Buttons bPlay, bInstructions, bQuit; 
     private BufferedImage logo, background; 
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        
     
     public Menu(Game g) {
         super(g);
