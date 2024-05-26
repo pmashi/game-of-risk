@@ -66,7 +66,9 @@ public class Buttons {
     public void drawText(Graphics g) { 
         int w = g.getFontMetrics().stringWidth(text);
 		int h = g.getFontMetrics().getHeight();
-		g.drawString(text, x - w / 2 + width / 2, y + h / 2 - 3 + height / 2);
+		g.drawString(text, 
+        x - w / 2 + width / 2, 
+        y + h / 2 - 3 + height / 2);
     }
 
     public void resetBooleans() { 

@@ -9,7 +9,7 @@ import static src.game.GameStates.*;
 import src.ui.Buttons;
 
 public class PlayCreate extends GameScene implements SceneMethods{
-    private Buttons[] players = new Buttons[2]; 
+    private Buttons one_player, two_player; 
     private Buttons back; 
     private int playerSelect = 0; 
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -23,12 +23,11 @@ public class PlayCreate extends GameScene implements SceneMethods{
         int width = 450;
 		int height = width / 3;
 		int x = GamePanel.width / 2 - width / 2;
-		int y = 300;
-		int yOffset = 400;
+		int y = 200;
+		int yOffset = 300;
         
-        for(int i = 0; i < players.length; i++) { 
-            players[i] = new Buttons(((i+1)+" Player"+(i!=0?"s":"")), x, y + yOffset * i, width, height);     
-        }
+        one_player = new Buttons("One Player", x, y, width, height);
+        two_player = new Buttons("Two Players (Not Released)", x, y + yOffset, width, height);
         back = new Buttons("Back", 100, 100, 100, 100);
     }
 
@@ -37,32 +36,36 @@ public class PlayCreate extends GameScene implements SceneMethods{
     }
 
     public void drawButtons(Graphics g) { 
-        for(int i =0 ; i < players.length; i++) { 
-            players[i].draw(g);
-        }
+        one_player.draw(g);
+        two_player.draw(g);
         back.draw(g);
     } 
 
     public void mouseClicked(int x, int y) {
         if(back.getBounds().contains(x, y)) { 
             setGameState(MENU); 
-        } 
-        for(int i = 0; i < players.length; i++) {
-            if(players[i].getBounds().contains(x, y)) {
-                game.getPlay().setPlayers(i+1);
-                setGameState(PLAY);
-            }
+        } else if(one_player.getBounds().contains(x, y)) { 
+            setGameState(PLAY);
+        } else if(two_player.getBounds().contains(x, y)) {
+            System.out.println("Content not released");
         }
     }
 
     public void resetOver() { 
         back.setMouseOver(false);
-        for(int i =0; i< players.length; i++) {
-            players[i].setMouseOver(false);
-        }
+        one_player.setMouseOver(false);
+        two_player.setMouseOver(false);
     }
+
     public void mouseMoved(int x, int y) {
-    
+        resetOver();
+        if(back.getBounds().contains(x, y)) { 
+            back.setMouseOver(true);
+        } else if(one_player.getBounds().contains(x, y)) { 
+            one_player.setMouseOver(true);
+        } else if(two_player.getBounds().contains(x, y)) {
+            two_player.setMouseOver(true);
+        }
     }
 
     public void mousePressed(int x, int y) {

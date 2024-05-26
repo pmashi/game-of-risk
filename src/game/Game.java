@@ -25,7 +25,7 @@ public class Game extends JFrame implements Runnable {
     public static final double UPS = 60.0;
 
     public static void main(String[] args) { 
-        System.out.println("Starting...");
+        // System.out.println("Starting...");
         Game game = new Game();
         game.panel.initInputs();
         game.start(); 
@@ -35,7 +35,7 @@ public class Game extends JFrame implements Runnable {
         initClasses();
 
         panel = new GamePanel(this);
-        this.setTitle("Game of Data"); 
+        this.setTitle("Data Breach: The Cyber Offensive"); 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
         this.add(panel);

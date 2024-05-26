@@ -67,6 +67,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        System.out.println(e.getX() + ", " + e.getY());
         switch(GameStates.gameState) {
             case MENU: 
                 game.getMenu().mouseClicked(e.getX(), e.getY());

@@ -1,5 +1,7 @@
 package src.scenes;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
@@ -12,6 +14,7 @@ import src.ui.Buttons;
 public class Menu extends GameScene implements SceneMethods {
     private Buttons bPlay, bInstructions, bQuit; 
     private BufferedImage logo, background; 
+    public static final Font firaCodeBold = new Font("FiraCode-Bold",Font.BOLD, 32);
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     
     public Menu(Game g) {
@@ -20,11 +23,11 @@ public class Menu extends GameScene implements SceneMethods {
     }
     
     public void initButtons() { 
-        int width = 150;
+        int width = 300;
 		int height = width / 3;
 		int x = GamePanel.width / 2 - width / 2;
 		int y = 300;
-		int yOffset = 90;
+		int yOffset = 150;
 
 		bPlay = new Buttons("Play", x, y, width, height);
 		bInstructions = new Buttons("Instruction", x, y + yOffset, width, height);
@@ -36,7 +39,7 @@ public class Menu extends GameScene implements SceneMethods {
     }
 
     public void drawButtons(Graphics g){ 
-        // g.setFont(Menu.thaleah);
+        g.setFont(Menu.firaCodeBold);
 		bPlay.draw(g);
 		bInstructions.draw(g);
 		bQuit.draw(g);
