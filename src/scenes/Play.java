@@ -3,19 +3,28 @@ package src.scenes;
 import java.awt.Graphics;
 
 import src.game.Game;
+import src.ui.InfoBar;
 
 public class Play extends GameScene implements SceneMethods { 
-    private int players = 0; 
+    //ui 
+    public InfoBar infoBar; 
 
+    // game data
+    private String weakness;
+    private boolean[] stages = new boolean[5];
+    private int day; 
+    
     public Play(Game game) {
         super(game); 
+        infoBar = new InfoBar(1300, 200, 200, 300, this);
     }
 
     public void update() { 
 
     }
+
     public void render(Graphics g) {
-    
+        infoBar.draw(g);
     }
 
     public void mouseClicked(int x, int y) {
@@ -38,7 +47,16 @@ public class Play extends GameScene implements SceneMethods {
 
     }
 
-    public void setPlayers(int i) { 
-        players = i; 
+    public void newGame() { 
+
     }
+
+    public void randomWeakness() { 
+
+    }
+
+    public void resetStages() { 
+        
+    }
+
 }

@@ -24,9 +24,9 @@ public class GameRender {
 		case PLAY:
 			game.getPlay().render(g);
 			break;
-        case SHOP:
-            game.getShop().render(g);
-            break;
+        // case SHOP:
+        //     game.getShop().render(g);
+        //     break;
 		case GAME_OVER:
 			game.getGameOver().render(g);
 			break;

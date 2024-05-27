@@ -13,13 +13,10 @@ public class Game extends JFrame implements Runnable {
     private Instructions instructions; 
     private PlayCreate playCreate; 
     private Play play; 
-    private Shop shop; 
+    // private Shop shop; 
     private GameOver gameOver; 
     
-
     public static final int unit = 10; 
-    private String players; 
-
     
     public static final double FPS = 60.0; 
     public static final double UPS = 60.0;
@@ -50,7 +47,7 @@ public class Game extends JFrame implements Runnable {
         instructions = new Instructions(this);
         playCreate = new PlayCreate(this);
         play = new Play(this);
-        shop = new Shop(this);
+        // shop = new Shop(this);
         gameOver = new GameOver(this);
     }
 
@@ -99,8 +96,8 @@ public class Game extends JFrame implements Runnable {
             break;
             case PLAY: 
             play.update(); 
-            case SHOP: 
-            break; 
+            // case SHOP: 
+            // break; 
             case GAME_OVER:
             break;
             default: 
@@ -128,9 +125,9 @@ public class Game extends JFrame implements Runnable {
         return play; 
     }
 
-    public Shop getShop() { 
-        return shop; 
-    }
+    // public Shop getShop() { 
+    //     return shop; 
+    // }
 
     public GameOver getGameOver() { 
         return gameOver; 

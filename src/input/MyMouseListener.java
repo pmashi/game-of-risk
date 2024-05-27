@@ -28,9 +28,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
             case PLAY: 
                 game.getPlay().mouseDragged(e.getX(), e.getY());
                 break; 
-            case SHOP: 
-                game.getShop().mouseDragged(e.getX(), e.getY());
-                break; 
+            // case SHOP: 
+            //     game.getShop().mouseDragged(e.getX(), e.getY());
+            //     break; 
             case GAME_OVER: 
                 game.getGameOver().mouseDragged(e.getX(), e.getY());
                 break;
@@ -54,9 +54,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
             case PLAY: 
                 game.getPlay().mouseMoved(e.getX(), e.getY());
                 break; 
-            case SHOP: 
-                game.getShop().mouseMoved(e.getX(), e.getY());
-                break; 
+            // case SHOP: 
+            //     game.getShop().mouseMoved(e.getX(), e.getY());
+            //     break; 
             case GAME_OVER: 
                 game.getGameOver().mouseMoved(e.getX(), e.getY());
                 break;
@@ -81,9 +81,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
             case PLAY: 
                 game.getPlay().mouseClicked(e.getX(), e.getY());
                 break; 
-            case SHOP: 
-                game.getShop().mouseClicked(e.getX(), e.getY());
-                break; 
+            // case SHOP: 
+            //     game.getShop().mouseClicked(e.getX(), e.getY());
+            //     break; 
             case GAME_OVER: 
                 game.getGameOver().mouseClicked(e.getX(), e.getY());
                 break;
@@ -107,9 +107,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
             case PLAY: 
                 game.getPlay().mousePressed(e.getX(), e.getY());
                 break; 
-            case SHOP: 
-                game.getShop().mousePressed(e.getX(), e.getY());
-                break; 
+            // case SHOP: 
+            //     game.getShop().mousePressed(e.getX(), e.getY());
+            //     break; 
             case GAME_OVER: 
                 game.getGameOver().mousePressed(e.getX(), e.getY());
                 break;
@@ -133,9 +133,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
             case PLAY: 
                 game.getPlay().mouseReleased(e.getX(), e.getY());
                 break; 
-            case SHOP: 
-                game.getShop().mouseReleased(e.getX(), e.getY());
-                break; 
+            // case SHOP: 
+            //     game.getShop().mouseReleased(e.getX(), e.getY());
+            //     break; 
             case GAME_OVER: 
                 game.getGameOver().mouseReleased(e.getX(), e.getY());
                 break;
