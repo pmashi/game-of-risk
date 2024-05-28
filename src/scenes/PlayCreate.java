@@ -36,6 +36,7 @@ public class PlayCreate extends GameScene implements SceneMethods{
     }
 
     public void drawButtons(Graphics g) { 
+        g.setFont(Menu.firaCodeBold);
         one_player.draw(g);
         two_player.draw(g);
         back.draw(g);

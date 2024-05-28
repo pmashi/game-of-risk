@@ -68,7 +68,7 @@ public class Buttons {
 		int h = g.getFontMetrics().getHeight();
 		g.drawString(text, 
         x - w / 2 + width / 2, 
-        y + h / 2 - 3 + height / 2);
+        y + h / 2 - 7 + height / 2);
     }
 
     public void resetBooleans() { 

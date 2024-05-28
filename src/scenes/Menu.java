@@ -14,8 +14,12 @@ import src.ui.Buttons;
 public class Menu extends GameScene implements SceneMethods {
     private Buttons bPlay, bInstructions, bQuit; 
     private BufferedImage logo, background; 
-    public static final Font firaCodeRegular = new Font("FireCode-Regular", Font.PLAIN, 18);
+    public static final Font firaCodeRegular = new Font("FireCode-Regular", Font.PLAIN, 28);
+    public static final Font firaCodeRegularLarge = new Font("FireCode-Regular", Font.PLAIN, 36);
     public static final Font firaCodeBold = new Font("FiraCode-Bold",Font.BOLD, 32);
+    public static final Font firaCodeBoldLarge = new Font("FiraCode-Bold",Font.BOLD, 72);
+    public static final Font robotoMono = new Font("RobotoMono-Medium", Font.PLAIN, 36);
+
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     
     public Menu(Game g) {
