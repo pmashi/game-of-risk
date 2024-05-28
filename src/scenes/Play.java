@@ -20,9 +20,9 @@ public class Play extends GameScene implements SceneMethods {
     
     public Play(Game game) {
         super(game); 
-        infoBar = new InfoBar(1100, 100, 400, 300, this);
+        infoBar = new InfoBar(1100, 100, 400, 250, this);
         taskBar = new TaskBar(1100, 500, 400, 700, this);
-        interactionBar = new InteractionBar(100, 700, 1000, 500, this);
+        interactionBar = new InteractionBar(100, 700, 1000, 400, this);
     }
 
     public void update() { 

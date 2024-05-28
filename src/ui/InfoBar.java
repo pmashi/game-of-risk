@@ -12,12 +12,15 @@ public class InfoBar extends Bar{
     private int bitcoin; 
     private int income; 
     private int day; 
+    private boolean requiredAction; 
     
     public InfoBar(int x, int y, int w, int h, Play play) { 
         super(x, y, w, h); 
         this.play = play; 
         bitcoin = 0;
+        income = 0; 
         day = 0; 
+        requiredAction = false; 
     }
 
     public void draw(Graphics g) { 
@@ -29,7 +32,7 @@ public class InfoBar extends Bar{
         drawTitle(g);
         drawDayInfo(g);
         drawBitcoinInfo(g);
-        // drawButtons(g);
+        drawRequiredAction(g);
     }
 
     public void drawTitle(Graphics g) { 
@@ -48,22 +51,61 @@ public class InfoBar extends Bar{
         g.setColor(Color.black);
         g.setFont(Menu.firaCodeRegular);
         g.drawString("Bitcoin: " + bitcoin, x + 20, y + 90);
-        g.drawString("Income: ", x + 20, y + 140); 
+        g.drawString("Income: " + income, x + 20, y + 140); 
     }
 
-    public void mouseClicked(int x, int y) { 
+    public void drawRequiredAction(Graphics g) { 
+        g.setColor(Color.black);
+        g.setFont(Menu.firaCodeRegular);
+        g.drawString("Required Action: ", x + 20, y + 190);
         
+        int xpos = g.getFontMetrics().stringWidth("Required Actions: "); 
+        g.drawRect(x + xpos + 20, y + 160, 30, 30);
+        if(requiredAction) g.setColor(Color.green);
+        else g.setColor(Color.red);
+        g.fillRect(x + xpos + 20, y + 160, 30, 30);
     }
 
-    public void mouseMoved(int x, int y) { 
-
+    public void passDay() { 
+        if(day == 0) { 
+            bitcoin += 50; 
+            income += 50; 
+        }
+        day++; 
     }
 
-    public void mousePressed(int x, int y) { 
-
+    public void increaseIncome(int i) { 
+        income += i; 
     }
 
-    public void mouseReleased(int x, int y) { 
+    public void increaseBitcoin(int i) {
+        bitcoin += i; 
+    }
 
+    public void spendBitcoin(int i) { 
+        bitcoin -= i; 
+    }
+
+    public int getDay() { 
+        return day; 
+    }
+
+    public int getBitcoin() { 
+        return bitcoin;
+    }
+
+    public int getIncome() { 
+        return income; 
+    }
+
+    public boolean getRequiredAction() {
+        return requiredAction;
+    }
+
+    public void resetGame() { 
+        bitcoin = 0; 
+        day = 0; 
+        income = 0; 
+        requiredAction = false; 
     }
 }
